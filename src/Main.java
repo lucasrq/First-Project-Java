@@ -29,6 +29,7 @@ public class Main {
     }
 
     public static int Relaxar() {
+        LimparTerminal();
         System.out.println("Voce escolheu o modo de relaxo!\n");
         System.out.println("Gostaria de tocar um Lo-Fi?\n");
         System.out.println("1: Sim");
@@ -43,15 +44,12 @@ public class Main {
         System.out.println("2: Youtube");
         int PlataformaEscolhida = scanner.nextInt();
         switch (PlataformaEscolhida) {
-            case 1:
-                System.out.println("Abrindo Spotify...");
-                break;
-            case 2:
-                System.out.println("Abrindo YouTube...");
-                break;
-            default:
+            case 1 -> System.out.println("Abrindo Spotify...");
+            case 2 -> System.out.println("Abrindo YouTube...");
+            default -> {
                 System.out.println("Opção inválida.");
                 return EscolherPlataforma(); // Repetir a escolha de plataforma se inválida
+            }
         }
         return PlataformaEscolhida;
     }
@@ -65,7 +63,8 @@ public class Main {
             LimparTerminal();
         }
         switch (Escolha) {
-            case 1: // Modo relaxar
+            case 1 -> {
+                // Modo relaxar
                 int UsoDePlataforma = Relaxar();
                 LimparTerminal();
                 while (UsoDePlataforma != 1 && UsoDePlataforma != 2) { // Verifica se a opção é válida
@@ -79,16 +78,13 @@ public class Main {
                     LimparTerminal();
                     System.out.println("Tudo bem, aproveite o modo Relaxar sem música!");
                 }
-                break;
-            case 2: // Modo Jogo
+            }
+            case 2 -> // Modo Jogo
                 System.out.println("Você escolheu o Modo Jogo!");
-                break;
-            case 3: // Modo Estudos
+            case 3 -> // Modo Estudos
                 System.out.println("Você escolheu o Modo Estudos!");
-                break;
-            case 4: // Modo Lazer
+            case 4 -> // Modo Lazer
                 System.out.println("Você escolheu o Modo Lazer!");
-                break;
         }
         scanner.close();
     }
